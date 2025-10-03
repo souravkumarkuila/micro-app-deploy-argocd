@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-nginx
+  labels:
+    app: myapp
+spec:
+  containers:
+  - name: myapp
+    image: nginx:latest
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "200m"
+      limits:
+        memory: "128Mi"
+        cpu: "300m"
+    ports:
+      - containerPort: 80
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-portfo
+  labels:
+    app: myapp
+spec:
+  containers:
+  - name: myapp
+    image: souravkuila12345/portfolio:1.0
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "200m"
+      limits:
+        memory: "128Mi"
+        cpu: "300m"
+    ports:
+      - containerPort: 80
